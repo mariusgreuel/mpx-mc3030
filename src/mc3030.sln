@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30804.86
+# Visual Studio Version 18
+VisualStudioVersion = 18.1.11312.151 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mpx-mc3030", "mpx-mc3030.csproj", "{E3B167E6-AB76-40EF-9854-F3B81F51B4F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mc3030", "mc3030.csproj", "{E3B167E6-AB76-40EF-9854-F3B81F51B4F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B35AD728-6F63-4DFC-9C19-53305F864E44}
+		SolutionGuid = {237E544B-9357-4C92-9903-D90E5D873653}
 	EndGlobalSection
 EndGlobal

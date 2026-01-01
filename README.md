@@ -1,6 +1,6 @@
 # MC3030 Tool
 
-The MC3030 Tool is a tool that allows you to access the Multiplex Profi mc3030 from a PC. 
+The mc3030 Tool is a tool that allows you to access the Multiplex Profi mc 3030 from a PC. 
 
 Features include:
 
@@ -12,18 +12,66 @@ Features include:
 
 ## Usage
 
-To use this tool, you need to connect the MC3030 to your PC via a USB Serial Convertor. Any USB to TTL UART, such as a FTDI FT232R serial convertor, will do. See **Serial Port Connection** below for details on how to connect the serial cable.
+To use this tool, you need to connect the Profi mc 3030 to your PC via a USB Serial Convertor. Any USB to TTL UART, such as a FTDI FT232R serial convertor, will do. See **Serial Port Connection** below for details on how to connect the serial cable.
 
-To display the usage of this tool, run `mpx-mc3030` from a command-prompt.
+To verify that the Profi mc 3030 is properly connected to your PC, run `mc3030 -port COMx -id` from a command-prompt. Replace **COMx** with the proper number of your serial adapter.
+
+On success, the following text should be displayed:
+
+```text
+Multiplex PROFI mc 3030 Tool, V1.1
+Copyright (C) 2018 Marius Greuel. All rights reserved.
+Opening COM port 'COM3'...
+Reading block 115: Received 257 bytes, Code: 0x06, Checksum: 0xC2 (OK)
+Reading block 127: Received 257 bytes, Code: 0x06, Checksum: 0xA7 (OK)
+
+Memory Size: 15
+Owner: '  PROFI MC3030  '
+V3.7 Text D 3.5
+Montage: 000000
+Nummer :   0000
+Service: ______
+```
+
+## Example commands
+
+To display the usage of this tool, run `mc3030` from a command-prompt:
+
+```text
+Multiplex PROFI mc 3030 Tool, V1.1
+Copyright (C) 2018 Marius Greuel. All rights reserved.
+Usage: mc3030 [@response-file] [options] <files>
+    -Port <COMx>        Specifies the COM port to be used
+    -Id                 Print the transmitter ID block
+    -Dump <block>       Dumps the specified block to the console
+    -Diff <block>       Repeatatly load the specified block and print changes to the console
+    -Save <filename>    Save data from the MC3030 to the specified file
+    -Load <filename>    Load the specified file and transfer the data to the MC3030
+    -Memory <memory>    Specifies the model memory to be loaded/saved
+    -Block <block>      Specifies the block to be saved
+    -FirstBlock <block> Specifies the first block to be saved
+    -LastBlock <block>  Specifies the last block to be saved
+    -Help               Display full help
+
+Examples:
+    Print device ID: mc3030 -port COM3 -id
+    Save model memory #1 to file: mc3030 -port COM3 -memory 1 -save mc3030-model-1.bin
+    Load model memory #1 from file: mc3030 -port COM3 -memory 1 -load mc3030-model-1.bin
+    Dump info block 0x73: mc3030 -port COM3 -dump 0x73
+    Backup data memory to file: mc3030 -port COM3 -first 0x70 -last 0x7F -save mc3030-dataset.bin
+    Restore data memory from file: mc3030 -port COM3 -load mc3030-dataset.bin
+    Backup entire memory to file: mc3030 -port COM3 -save mc3030-full-backup.bin
+    Restore entire memory from file: mc3030 -port COM3 -load mc3030-full-backup.bin
+```
 
 ## Downloads
 
-To download a pre-build executable, go to the [releases](https://github.com/rc-hacks/mpx-mc3030/releases) folder.
+To download a pre-build executable, go to the [releases](https://github.com/mariusgreuel/mpx-mc3030/releases) folder.
 
 ### Prerequisites
 
-- On Windows, you need Windows 7 or higher with the .NET Framework installed.
-- On Linux or macOS, you need Mono to be installed. You can execute **mpx-mc3030** by running `mono mpx-mc3030.exe`.
+- On Windows, you need Windows 10 or higher with the .NET Framework installed.
+- On Linux or macOS, you need Mono to be installed. You can execute **mc3030** by running `mono mc3030.exe`.
 
 ## Building the software
 
@@ -31,22 +79,11 @@ This software is written in C# using Visual Studio 2019.
 
 ## Serial Port Connection
 
-The MC3030 micro controller has a TTL (5V) serial port connected to the radios DIN connector.
+The microcontroller of the mc 3030 has a TTL (5V) serial port connected to the radios DIN connector.
 
 The serial port is operated at 9600,N,8,1.
 
-The pinout is:
-
-```pre
-     2
-  4     5
-1    +    3
-  6     7
-```
-
-- 3: GND
-- 4: TX (out)
-- 7: RX (in)
+For the pinout, see [Multiplex PROFI mc 3030 Pinout](../docs/mc3030-pinout.md#din-connector)
 
 ## Technical Details
 

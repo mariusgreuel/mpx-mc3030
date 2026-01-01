@@ -1,7 +1,4 @@
-using Mpx;
-using System;
-
-namespace MpxMc3030
+namespace Mc3030
 {
     public class Options : CommandLineOptions
     {

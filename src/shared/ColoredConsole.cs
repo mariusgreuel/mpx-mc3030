@@ -1,6 +1,6 @@
 using System;
 
-namespace Mpx
+namespace Mc3030
 {
     public class ColoredConsole : IDisposable
     {

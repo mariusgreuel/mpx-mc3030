@@ -1,11 +1,10 @@
-﻿using Mpx;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Ports;
 using System.Threading;
 
-namespace MpxMc3030
+namespace Mc3030
 {
     class Transmitter : IDisposable
     {
