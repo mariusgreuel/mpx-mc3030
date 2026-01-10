@@ -6,7 +6,7 @@
 
 The Multiplex PROFI mc 3030 uses a 7-pin DIN connector.
 
-[![DIN Connector](./mc3030-din-connector.svg)](./mc3030-din-connector.svg)
+[![DIN Connector](./din-connector.svg)](./din-connector.svg)
 
 **Pin Assignments**
 
@@ -32,7 +32,7 @@ Data Exchange | TxD |     | RxD | Serial port for data exchange with other radio
 Teacher In    | PPM |     |     | Teacher input mode (Teacher), D4 receives PPM signal.
 Teacher Out   | PPM | GND |     | Teacher output mode (Student), D4 transmits PPM signal, disabled HF module.
 Rev Counter   | In  |     | GND | Revolution counter sensor connected to D4.
-Service       |     | GND | GND | Service mode for personalization the radio.
+Service       |     | GND | GND | Service mode for personalization of the radio.
 
 ### Main Board Connector
 
@@ -58,10 +58,9 @@ Pin | Name
 
 ## See Also
 
-- [Multiplex Flash Tool](https://github.com/mariusgreuel/mpx-flash)
-- [Multiplex PPM Format](https://github.com/mariusgreuel/mpx-ppm-spec)
-- [Multiplex PCM Format](https://github.com/mariusgreuel/mpx-pcm-spec)
-- [Multiplex M-LINK Transmitter Software](https://github.com/mariusgreuel/mpx-m-link)
+- [Multiplex Flash Tool](../)
+- [Multiplex PPM Format](./multiplex-ppm-spec.md)
+- [Multiplex PCM Format](./multiplex-pcm-spec.md)
 
 ## License
 
